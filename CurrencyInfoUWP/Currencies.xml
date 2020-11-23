@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Currencies>
+  <Currency>
+  <Name>Dollar</Name>
+  <Code>Usd</Code>
+  </Currency>
+  <Currency>
+    <Name> British Pound</Name>
+    <Code>GBP</Code>
+  </Currency>
+  <Currency>
+    <Name>Euro</Name>
+    <Code>EUR</Code>
+  </Currency>
+  <Currency>
+    <Name>Polish Zloty</Name>
+    <Code>PLN</Code>
+  </Currency>
+  <Currency>
+    <Name>Switzaland Frank</Name>
+    <Code>CHF</Code>
+  </Currency>
+  <Currency>
+    <Name>Russian Rubl</Name>
+    <Code>RUR</Code>
+  </Currency>
+</Currencies>

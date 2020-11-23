@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="CurrencyInfoUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CurrencyInfoUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding MainPageViewModel, Source={StaticResource ViewModelLocator}}">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Курс валют" FontSize="36" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Name="DollarsRatesStackPanel">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="DollarSellRateLabel" Text="Продаж" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Name="DollarSellRate" Grid.Row="1" Grid.Column="0" Text="{Binding DollarSellRate, Mode=OneWay}"/>
+                    <TextBlock Name="DollarPurchaseRateLabel" Text="Продаж" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Name="DollarPurchaseRate" Grid.Row="1" Grid.Column="1" Text="{Binding DollarPurchaseRate, Mode=OneWay}"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Name="EuroRatesStackPanel">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="EuroSellRateLabel" Text="Продаж" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Name="EuroSellRate" Grid.Row="1" Grid.Column="0" Text="{Binding EuroSellRate, Mode=OneWay}"/>
+                    <TextBlock Name="EuroPurchaseRateLabel" Text="Продаж" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Name="EuroPurchaseRate" Grid.Row="1" Grid.Column="1" Text="{Binding EuroPurchaseRate, Mode=OneWay}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Name="ZlotyOfficialRatePanel">
+            <TextBlock x:Name="ZlotyOfficialRateLabel" Text="Офіційний курс злотого"/>
+            <TextBlock x:Name="ZlotyOfficialRate" Text="{Binding OfficialExchangeRate, Mode=OneWay}"/>
+            <Button Content="Обновити" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Command="{Binding UpdateCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>

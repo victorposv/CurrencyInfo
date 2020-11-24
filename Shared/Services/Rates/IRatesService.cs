@@ -10,5 +10,6 @@ namespace Shared.Services.Rates
     {
         ReadOnlyDictionary<BankId, Bank> Banks { get; }
         Task UpdateRatesInfoAsync();
+        CurrencyRates GetAvarageRates();
     }
 }

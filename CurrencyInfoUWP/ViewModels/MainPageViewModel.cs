@@ -42,13 +42,14 @@ namespace CurrencyInfoUWP.ViewModels
                 await _ratesService.UpdateRatesInfoAsync().ConfigureAwait(false);
             }
 
-            var selectedBank = _ratesService.Banks[BankId.Aval];
+            var averageRates = _ratesService.GetAvarageRates();
+
             var nbu = _ratesService.Banks[BankId.NBU];
 
-            DollarPurchaseRate = selectedBank.CurrencyRates.USD.Purchase.ToString();
-            DollarSellRate = selectedBank.CurrencyRates.USD.Sell.ToString();
-            EuroPurchaseRate = selectedBank.CurrencyRates.EUR.Purchase.ToString();
-            EuroSellRate = selectedBank.CurrencyRates.EUR.Sell.ToString();
+            DollarPurchaseRate = averageRates.USD.Purchase.ToString();
+            DollarSellRate = averageRates.USD.Sell.ToString();
+            EuroPurchaseRate = averageRates.EUR.Purchase.ToString();
+            EuroSellRate = averageRates.EUR.Sell.ToString();
 
             OfficialExchangeRate = nbu.CurrencyRates.PLN.Purchase.ToString();
         }
